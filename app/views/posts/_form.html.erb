@@ -2,8 +2,11 @@
 
   <%= form.label :title %>
   <%= form.text_field :title %>
+  <br/>
+  <br/>
   <%= form.label :body %>
   <%= form.text_area :body %>
+  <br/>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -15,7 +18,7 @@
       </ul>
     </div>
   <% end %>
-
+  <br/>
   <div class="actions">
     <%= form.submit %>
   </div>
