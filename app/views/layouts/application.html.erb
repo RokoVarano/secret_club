@@ -12,7 +12,13 @@
 
   </head>
 
-  <body>
+  <body style="padding-left: 40px; padding-top: 40px;">
+    <% if flash.now[:alert] %>
+    <div class='notification is-danger global-notification'>
+      <p class='alert'><%= alert %> </p>
+    </div>
+    <%else%>
+    <% end %>
     <%= yield %>
   </body>
 </html>
