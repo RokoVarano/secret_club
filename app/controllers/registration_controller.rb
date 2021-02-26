@@ -11,7 +11,7 @@ class RegistrationController < ApplicationController
   end
 
   def sign_in_params
-    params.require(:user).permit(:email, :password, :remember_me)
+    params.require(:user).permit(:email, :password)
   end
 
 end
