@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SecretClub</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  </head>
+
+  <body style="padding-left: 40px; padding-top: 40px;">
+    <% if flash.now[:alert] %>
+    <div class='notification is-danger global-notification'>
+      <p class='alert'><%= alert %> </p>
+    </div>
+    <%else%>
+    <% end %>
+    <p id="notice"><%= notice %></p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <% if current_page? new_user_session_path %>
+    <%else%>
+      <% if !user_signed_in? %>
+        <span><%= button_to 'Login', new_user_session_path, method: :get %></span>
+      <% else %>
+        <div><span>Logged-in user:<span> 
+        <span><%= link_to current_user.email, edit_user_registration_path %></span>
+        <br />
+        <span><%= button_to 'Logout', destroy_user_session_path, method: :delete %></span>
+      <% end %>
+    <%end%>
+    </nav>
+
+  <div>
+    <%= yield %>
+  </div>
+  </body>
+</html>
