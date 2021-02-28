@@ -19,6 +19,24 @@
     </div>
     <%else%>
     <% end %>
+    <p id="notice"><%= notice %></p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <% if current_page? new_user_session_path %>
+    <%else%>
+      <% if !user_signed_in? %>
+        <span><%= button_to 'Login', new_user_session_path, method: :get %></span>
+      <% else %>
+        <div><span>Logged-in user:<span> 
+        <span><%= link_to current_user.email, edit_user_registration_path %></span>
+        <br />
+        <span><%= button_to 'Logout', destroy_user_session_path, method: :delete %></span>
+      <% end %>
+    <%end%>
+    </nav>
+
+  <div>
     <%= yield %>
+  </div>
   </body>
 </html>
