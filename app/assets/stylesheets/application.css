@@ -14,8 +14,8 @@
  *= require_self
  */
 
- nav {
-   text-align: right;
-   float: right;
-   margin-right: 50px;
- }
+nav {
+  text-align: right;
+  float: right;
+  margin-right: 50px;
+}
